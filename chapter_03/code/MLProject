@@ -1,0 +1,11 @@
+name: Sea Ice Prediction
+
+python_env: python_env.yaml
+
+entry_points:
+  main:
+    parameters:
+      num_epochs: {type: float, default: 100}
+    command: "papermill -k python3 \
+      -p num_epochs {num_epochs} \
+      Sea_Ice_Prediction_monthly_LSTM.ipynb /dev/null"
