@@ -6,6 +6,11 @@ entry_points:
   main:
     parameters:
       num_epochs: {type: float, default: 100}
+#      Valid values are Adam, Lion, AdamW, Adafactor
+      optimizer: {tyoe: str, default: Adam}
+      batch_size: {type: int, default: 12}
     command: "papermill -k python3 \
       -p num_epochs {num_epochs} \
+      -p optimizer {optimizer} \
+      -p batch_size {batch_size} \
       Sea_Ice_Prediction_monthly_LSTM.ipynb /dev/null"
